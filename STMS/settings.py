@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'gymapp',
+    'tailwind',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,13 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_browser_reload',
-    'tailwind',
-    'gymapp',
 ]
+
+AUTH_USER_MODEL = 'gymapp.CustomUser'
+
 
 TAILWIND_APP_NAME = 'gymapp'
 
-LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/signin/'
 
 MIDDLEWARE = [

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User Management</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Current Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.get_user_type_display }}</td>
+            <td>
+                <form method="post" action="{% url 'update_user_role' user.id %}">
+                    {% csrf_token %}
+                    <select name="user_type" class="form-control">
+                        <option value="admin" {% if user.user_type == 'admin' %}selected{% endif %}>Administrator</option>
+                        <option value="staff" {% if user.user_type == 'staff' %}selected{% endif %}>Staff</option>
+                        <option value="client" {% if user.user_type == 'client' %}selected{% endif %}>Client</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Update Role</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
