@@ -8,5 +8,57 @@
   </head>
   <body>
     <h2>User Management</h2>
+    <table class="table">
+      <!--This is to group the the header content in the table -->
+      <thead>
+        <tr>
+          <!--rows inside the table-->
+          <th>Username</th>
+          <!--table headers to mimic armando's version-->
+          <th>Email</th>
+          <th>Current Role</th>
+          <th>Action</th>
+          <!--this will be where the form is-->
+        </tr>
+      </thead>
+      <tbody>
+        <!--table body will include -->
+        <tr>
+          <!--table rows-->
+          <td>Armando</td>
+          <!--these match with headers-->
+          <td>Armando123@thisemail.com</td>
+          <td>Administrator</td>
+          <td>
+            <form method="post">
+              <!--here is a form to select what type of user-->
+              <select name="the_user_type" class="form-control">
+                <option value="admin" selected>Administrator</option>
+                <option value="staff">Staff</option>
+                <option value="client">Client</option>
+              </select>
+              <button type="submit" class="btn1-primary">Update Role</button
+              ><!--this button submits the form-->
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>Sujal</td>
+          <td>Sujal456@thisemail.com</td>
+          <td>Staff</td>
+          <td>
+            <form method="post">
+              <select name="the_user_type" class="form-control">
+                <option value="admin">Administrator</option>
+                <option value="staff" selected>Staff</option>
+                <option value="client">Client</option>
+              </select>
+              <button type="submit" class="btn1-primary">Update Role</button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
+<!--feel free to change the names of the users i imputed-->
