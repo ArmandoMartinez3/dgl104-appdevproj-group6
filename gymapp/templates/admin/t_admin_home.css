@@ -27,3 +27,52 @@ h2 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
+/*Styling for the table */
+.table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse; /*this will merge the borders(less of a grid look)*/
+  background: linear-gradient(
+    45deg,
+    #b22222,
+    #444
+  ); /* Red and dark gradient background */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Header Styling */
+.table th {
+  padding: 20px;
+  text-align: center;
+  background-color: #b22222; /* Red for the table headers */
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Table Body Styling */
+.table td {
+  padding: 20px;
+  text-align: center;
+  font-size: 1em;
+  background-color: #444;
+  border-bottom: 1px solid #666;
+  transition: background-color 0.3s ease;
+}
+
+/* Table row hover effects fpr interactivity */
+.table tr:hover td {
+  background-color: #555;
+  transform: translateY(
+    -5px
+  ); /*this moves the rows up to create more interactivity when hovered*/
+}
+
+/*action form to be continued*/
