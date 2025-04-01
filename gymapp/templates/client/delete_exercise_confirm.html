@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto p-4">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow">
+        <h2 class="text-2xl font-bold mb-6">Delete Exercise</h2>
+        
+        <p class="mb-6 text-gray-600">
+            Are you sure you want to delete "{{ routine_exercise.exercise.name }}" from your routine?
+        </p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex space-x-4">
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Delete Exercise
+                </button>
+                <a href="{% url 'routine_detail' routine_exercise.routine.id %}" 
+                   class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 
