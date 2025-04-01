@@ -4,6 +4,44 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Styling for the navigation bar */
+nav {
+  background-color: #b22222; /* Red background */
+  padding: 10px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Navigation Bar Styles */
+/* Logo styling */
+.logo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* link styles */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+  background-color: #c0392b;
+}
 
 body {
   font-family: "Arial", sans-serif;
