@@ -12,4 +12,10 @@ urlpatterns = [
     path('client-home', views.client_home, name='client_home'),
     path('admin-home', views.admin_home, name='admin_home'),
     path('staff-home', views.staff_home, name='staff_home'),
+    path('routine/add/', views.add_routine, name='add_routine'),
+    path('routine/<int:routine_id>/', views.routine_detail, name='routine_detail'),
+    path('exercise/toggle/<int:routine_exercise_id>/', views.toggle_exercise, name='toggle_exercise'),
+    path('routine/<int:routine_id>/add-exercise/', views.add_exercise, name='add_exercise'),
+    path('exercise/edit/<int:exercise_id>/', views.edit_exercise, name='edit_exercise'),
+    path('exercise/delete/<int:exercise_id>/', views.delete_exercise, name='delete_exercise'),
 ]
