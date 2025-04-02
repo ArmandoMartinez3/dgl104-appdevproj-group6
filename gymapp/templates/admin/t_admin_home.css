@@ -173,6 +173,7 @@ form textarea {
 
 form textarea {
   height: 150px;
+  resize: none; /* Prevent resizing of the textarea */
 }
 
 /* Button Styling */
@@ -181,7 +182,7 @@ form .button-container {
   justify-content: center;
   width: 100%;
   max-width: none;
-  margin-top: 20px; /**/
+  margin-top: 20px;
 }
 
 form button {
@@ -197,7 +198,7 @@ form button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: none;
+  max-width: 350px;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   height: 80px;
@@ -208,4 +209,19 @@ form button {
 form button:hover {
   background-color: #ffcc00;
   box-shadow: 0 0 12px rgba(255, 215, 0, 1);
+}
+.password-link {
+  margin-top: 20px; /* This adds a gap between the button and the link */
+  text-align: center;
+}
+
+.password-link a {
+  color: #ffd700; /* Adds color to the link not sure if needed */
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.password-link a:hover {
+  color: #ffcc00; /* Changes color when hovering over the link */
 }
