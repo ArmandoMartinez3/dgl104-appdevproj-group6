@@ -58,7 +58,7 @@ body {
 /* Header Styling */
 h2 {
   text-align: center;
-  margin: 20px 0;
+  margin: 10px;
   color: #190000; /* Red Main title */
   font-size: 4.5em;
   font-weight: bold;
@@ -66,6 +66,7 @@ h2 {
   text-transform: uppercase;
   background-color: #b22222;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 60%;
 }
 
 /*Styling for the table */
