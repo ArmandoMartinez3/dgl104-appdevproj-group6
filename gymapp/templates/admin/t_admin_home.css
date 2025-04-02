@@ -58,12 +58,13 @@ body {
 /* Header Styling */
 h2 {
   text-align: center;
-  margin: 10px;
+  margin: 10px auto;
   color: #190000; /* Red Main title */
   font-size: 4.5em;
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
+  border-radius: 25px;
   background-color: #b22222;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   width: 60%;
@@ -71,17 +72,18 @@ h2 {
 
 /*Styling for the table */
 .table {
-  width: 90%;
+  width: 60%;
   margin: 20px auto;
   border-collapse: collapse; /*this will merge the borders(less of a grid look)*/
   background: linear-gradient(
     45deg,
-    #b22222,
+    #0afe47,
     #444
-  ); /* Red and dark gradient background */
+  ); /* this green is for the background behind the hover effect in team management page*/
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: none; /* Remove the grid lines */
 }
 
 /* Table Header Styling */
@@ -96,6 +98,7 @@ h2 {
   text-transform: uppercase;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
+  border: none; /* Remove grid lines for the header */
 }
 
 /* Table Body Styling */
@@ -104,7 +107,7 @@ h2 {
   text-align: center;
   font-size: 1em;
   background-color: #444;
-  border-bottom: 1px solid #666;
+  border: none; /* Remove grid lines for table data cells */
   transition: background-color 0.3s ease;
 }
 
@@ -126,6 +129,12 @@ form {
   background-color: #222;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-container {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 300px;
 }
 
 /* Adjust the Select Menu for Larger Visibility */
@@ -153,7 +162,7 @@ form .button-container {
   justify-content: center;
   width: 100%;
   max-width: none;
-  margin-top: 20px;
+  margin-top: 20px; /**/
 }
 
 form button {
