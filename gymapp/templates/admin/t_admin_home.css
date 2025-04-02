@@ -225,3 +225,16 @@ form button:hover {
 .password-link a:hover {
   color: #ffcc00; /* Changes color when hovering over the link */
 }
+
+@media (min-width: 1024px) {
+  .table {
+    width: 70%;
+  }
+  .button-container {
+    flex-direction: row;
+  }
+  form select,
+  form button {
+    width: 100%;
+  }
+}
