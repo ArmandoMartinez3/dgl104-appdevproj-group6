@@ -156,6 +156,25 @@ form select {
   padding-right: 100px; /* I am trying to push the arrow closer to the word...*/
 }
 
+/* Styling for form input fields (text boxes) */
+form input,
+form textarea {
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 2px solid #444;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  width: 80%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+form textarea {
+  height: 150px;
+}
+
 /* Button Styling */
 form .button-container {
   display: flex;
