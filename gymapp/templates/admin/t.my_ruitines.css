@@ -36,8 +36,52 @@ header {
   padding: 0 20px;
 }
 
+/* The Nav Bar Styling & Logo*/
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #ffd700;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #daa520;
+}
+
+main {
+  margin-top: 30px;
+}
+
+#routines-section {
+  display: block;
+}
+
+#routines-section h2 {
+  font-size: 2rem;
+  color: #333;
+}
+.routine-card {
+  background: #f8f9fa;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border-left: 4px solid #dc3545;
+  transition: all 0.3s ease;
+}
+#routine-list {
+  margin-top: 20px;
+}
+
+.routine-card:hover {
+  border-left-color: #daa520;
 }
