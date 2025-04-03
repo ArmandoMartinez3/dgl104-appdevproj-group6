@@ -12,3 +12,32 @@ body {
   color: #333;
   line-height: 1.6;
 }
+/* Header Styles */
+header {
+  background: #dc3545; /* the theme red we spoke about  */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid #daa520;
+  margin: 0;
+}
+
+/* Container is for the page content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffd700;
+}
