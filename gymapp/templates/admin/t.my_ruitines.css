@@ -85,3 +85,23 @@ main {
 .routine-card:hover {
   border-left-color: #daa520;
 }
+
+.routine-card ul li {
+  margin-bottom: 10px;
+}
+
+.routine-card ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.btn {
+  background: #dc3545;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
