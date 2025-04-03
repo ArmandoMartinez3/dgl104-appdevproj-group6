@@ -156,13 +156,33 @@ form select {
   padding-right: 100px; /* I am trying to push the arrow closer to the word...*/
 }
 
+/* Styling for form input fields (text boxes) */
+form input,
+form textarea {
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 2px solid #444;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  width: 80%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+form textarea {
+  height: 150px;
+  resize: none; /* Prevent resizing of the textarea */
+}
+
 /* Button Styling */
 form .button-container {
   display: flex;
   justify-content: center;
   width: 100%;
   max-width: none;
-  margin-top: 20px; /**/
+  margin-top: 20px;
 }
 
 form button {
@@ -178,7 +198,7 @@ form button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: none;
+  max-width: 350px;
   transition: background-color 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   height: 80px;
@@ -189,4 +209,32 @@ form button {
 form button:hover {
   background-color: #ffcc00;
   box-shadow: 0 0 12px rgba(255, 215, 0, 1);
+}
+.password-link {
+  margin-top: 20px; /* This adds a gap between the button and the link */
+  text-align: center;
+}
+
+.password-link a {
+  color: #ffd700; /* Adds color to the link not sure if needed */
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+.password-link a:hover {
+  color: #ffcc00; /* Changes color when hovering over the link */
+}
+
+@media (min-width: 1024px) {
+  .table {
+    width: 70%;
+  }
+  .button-container {
+    flex-direction: row;
+  }
+  form select,
+  form button {
+    width: 100%;
+  }
 }
