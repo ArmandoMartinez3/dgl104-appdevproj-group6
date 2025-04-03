@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymSync - Trainer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content"> 
+            <div class="logo">GymSync</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Routines</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container dashboard">
+        <div class="sidebar">
+            <h2>Trainer Tools</h2>
+            <button class="btn" onclick="showSection('users')">Manage Users</button>
+            <button class="btn" onclick="showSection('routines')">Create Routine</button>
+            <button class="btn" onclick="showSection('tracking')">Track Time</button>
+        </div>
+
+        <div class="main-content">
+            <section id="users-section">
+                <h2>User Management</h2>
+                <div class="user-list" id="user-list">
+                    <div class="user-card" data-username="john_doe">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p>Last Visit: 2h 30m</p>
+                        </div>
+                        <button class="btn" onclick="deleteUser(this)">Delete</button>
+                    </div>
+                    <div class="user-card" data-username="jane_smith">
+                        <div>
+                            <h3>Jane Smith</h3>
+                            <p>Last Visit: 1h 45m</p>
+                        </div>
+                        <button class="btn" onclick="deleteUser(this)">Delete</button>
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 20px;" onclick="showAddUserForm()">Add New User</button>
+
+                <!-- Add User Form (Hidden by Default) -->
+                <div id="add-user-form" class="form-container" style="display: none;">
+                    <h3>Add New User</h3>
+                    <div class="form-group">
+                        <label for="user-name">Name</label>
+                        <input type="text" id="user-name" placeholder="Enter user name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-visit">Last Visit (e.g., 2h 30m)</label>
+                        <input type="text" id="last-visit" placeholder="Enter last visit duration">
+                    </div>
+                    <button class="btn" onclick="addUser()">Submit</button>
+                    <button class="btn cancel" onclick="hideAddUserForm()">Cancel</button>
+                </div>
+            </section>
+
+            <section id="routines-section" style="display: none;">
+                <h2>Create New Routine</h2>
+                <div class="routine-creator">
+                    <div class="form-group">
+                        <label for="routine-user">User</label>
+                        <input type="text" id="routine-user" placeholder="Enter user name">
+                    </div>
+                    <div class="form-group">
+                        <label for="routine-name">Routine Name</label>
+                        <input type="text" id="routine-name" placeholder="e.g., Strength Training">
+                    </div>
+                    <div class="form-group">
+                        <label for="exercises">Exercises</label>
+                        <input type="text" id="exercises" placeholder="e.g., Bench Press - 3x10">
+                    </div>
+                    <button class="btn" onclick="saveRoutine()">Save Routine</button>
+                </div>
+                <div id="routine-list"></div>
+            </section>
+
+            <section id="tracking-section" style="display: none;">
+                <h2>Time Tracking</h2>
+                <div class="user-list" id="tracking-list">
+                    <div class="user-card">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p>Today: 2h 30m</p>
+                        </div>
+                    </div>
+                    <div class="user-card">
+                        <div>
+                            <h3>Jane Smith</h3>
+                            <p>Today: 1h 45m</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.main-content section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(`${sectionId}-section`).style.display = 'block';
+        }
+
+        function showAddUserForm() {
+            document.getElementById('add-user-form').style.display = 'block';
+        }
+
+        function hideAddUserForm() {
+            document.getElementById('add-user-form').style.display = 'none';
+            document.getElementById('user-name').value = '';
+            document.getElementById('last-visit').value = '';
+        }
+
+        function addUser() {
+            const name = document.getElementById('user-name').value;
+            const lastVisit = document.getElementById('last-visit').value || '0h 0m';
+            const username = name.toLowerCase().replace(/\s+/g, '_');
+
+            if (!name) {
+                alert('Please enter a user name');
+                return;
+            }
+
+            const userList = document.getElementById('user-list');
+            const trackingList = document.getElementById('tracking-list');
+
+            // Add to User List
+            const newUserCard = document.createElement('div');
+            newUserCard.className = 'user-card';
+            newUserCard.dataset.username = username;
+            newUserCard.innerHTML = `
+                <div>
+                    <h3>${name}</h3>
+                    <p>Last Visit: ${lastVisit}</p>
+                </div>
+                <button class="btn" onclick="deleteUser(this)">Delete</button>
+            `;
+            userList.appendChild(newUserCard);
+
+            // Add to Tracking List
+            const newTrackingCard = document.createElement('div');
+            newTrackingCard.className = 'user-card';
+            newTrackingCard.innerHTML = `
+                <div>
+                    <h3>${name}</h3>
+                    <p>Today: ${lastVisit}</p>
+                </div>
+            `;
+            trackingList.appendChild(newTrackingCard);
+
+            hideAddUserForm();
+        }
+
+        function deleteUser(button) {
+            const userCard = button.parentElement;
+            const username = userCard.dataset.username;
+            const name = userCard.querySelector('h3').textContent;
+
+            // Remove from User List
+            userCard.remove();
+
+            // Remove from Tracking List
+            const trackingCards = document.querySelectorAll('#tracking-list .user-card');
+            trackingCards.forEach(card => {
+                if (card.querySelector('h3').textContent === name) {
+                    card.remove();
+                }
+            });
+        }
+
+        function saveRoutine() {
+            const user = document.getElementById('routine-user').value;
+            const name = document.getElementById('routine-name').value;
+            const exercises = document.getElementById('exercises').value;
+
+            if (!user || !name || !exercises) {
+                alert('Please fill in all routine fields');
+                return;
+            }
+
+            const routineList = document.getElementById('routine-list');
+            const routineDiv = document.createElement('div');
+            routineDiv.className = 'routine-card';
+            routineDiv.innerHTML = `
+                <h3>${name}</h3>
+                <p>User: ${user}</p>
+                <p>Exercises: ${exercises}</p>
+            `;
+            routineList.appendChild(routineDiv);
+
+            document.getElementById('routine-user').value = '';
+            document.getElementById('routine-name').value = '';
+            document.getElementById('exercises').value = '';
+        }
+    </script>
+</body>
+</html>
