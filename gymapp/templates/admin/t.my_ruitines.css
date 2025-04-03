@@ -87,7 +87,7 @@ main {
 }
 
 .routine-card ul li {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .routine-card ul {
@@ -98,10 +98,40 @@ main {
 .btn {
   background: #dc3545;
   color: white;
-  padding: 5px 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+}
+.btn:hover {
+  background: #daa520;
+  color: #333;
+}
+
+.view-routine {
+  background: #f8f9fa;
+  color: #dc3545;
+  padding: 5px 15px;
+  border: 2px solid #dc3545;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-routine:hover {
+  background: #dc3545;
+  color: white;
+  border-color: #daa520;
+}
+
+.btn.cancel {
+  background: #6c757d;
+  margin-left: 10px;
+}
+
+.btn.cancel:hover {
+  background: #daa520;
+  color: #333;
 }
