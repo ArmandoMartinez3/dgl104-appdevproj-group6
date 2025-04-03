@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymSync - Trainer Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">GymSync</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="user.html">Users</a></li>
+                    <li><a href="#">Routines</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container dashboard">
+        <div class="sidebar">
+            <h2>Trainer Tools</h2>
+            <button class="btn">Manage Users</button>
+            <button class="btn">Create Routine</button>
+            <button class="btn">Track Time</button>
+        </div>
+
+        <div class="main-content">
+            <section id="users-section">
+                <h2>User Management</h2>
+                <div class="user-list" id="user-list">
+                    <div class="user-card" data-username="john_doe">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p>Last Visit: 2h 30m</p>
+                        </div>
+                        <button class="btn">Delete</button>
+                    </div>
+                    <div class="user-card" data-username="jane_smith">
+                        <div>
+                            <h3>Jane Smith</h3>
+                            <p>Last Visit: 1h 45m</p>
+                        </div>
+                        <button class="btn">Delete</button>
+                    </div>
+                </div>
+                <button class="btn" style="margin-top: 20px;">Add New User</button>
+
+                <div id="add-user-form" class="form-container" style="display: none;">
+                    <h3>Add New User</h3>
+                    <div class="form-group">
+                        <label for="user-name">Name</label>
+                        <input type="text" id="user-name" placeholder="Enter user name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-visit">Last Visit (e.g., 2h 30m)</label>
+                        <input type="text" id="last-visit" placeholder="Enter last visit duration">
+                    </div>
+                    <button class="btn">Submit</button>
+                    <button class="btn cancel">Cancel</button>
+                </div>
+            </section>
+
+            <section id="routines-section" style="display: none;">
+                <h2>Create New Routine</h2>
+                <div class="routine-creator">
+                    <div class="form-group">
+                        <label for="routine-user">User</label>
+                        <input type="text" id="routine-user" placeholder="Enter user name">
+                    </div>
+                    <div class="form-group">
+                        <label for="routine-name">Routine Name</label>
+                        <input type="text" id="routine-name" placeholder="e.g., Strength Training">
+                    </div>
+                    <div class="form-group">
+                        <label for="exercises">Exercises</label>
+                        <input type="text" id="exercises" placeholder="e.g., Bench Press - 3x10">
+                    </div>
+                    <button class="btn">Save Routine</button>
+                </div>
+                <div id="routine-list" class="routine-list"></div>
+            </section>
+
+            <section id="tracking-section" style="display: none;">
+                <h2>Time Tracking</h2>
+                <div class="user-list" id="tracking-list">
+                    <div class="user-card">
+                        <div>
+                            <h3>John Doe</h3>
+                            <p>Today: 2h 30m</p>
+                        </div>
+                    </div>
+                    <div class="user-card">
+                        <div>
+                            <h3>Jane Smith</h3>
+                            <p>Today: 1h 45m</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
