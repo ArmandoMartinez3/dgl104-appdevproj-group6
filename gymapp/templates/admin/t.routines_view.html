@@ -19,11 +19,47 @@
         </nav>
       </div>
     </header>
-
     <main>
       <section class="container routines">
         <div class="main-content">
           <h2>Chest Routine</h2>
+          <a href="#" class="btn">Add Exercise</a>
+          <table class="routine-table">
+            <thead>
+              <tr>
+                <th>Exercise</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Weight</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chest Press</td>
+                <td>3</td>
+                <td>10</td>
+                <td>50 kg</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>
+                  <button class="btn">Edit</button>
+                  <button class="btn cancel">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Incline Bench Press</td>
+                <td>4</td>
+                <td>8</td>
+                <td>40 kg</td>
+                <td><span class="status done">Done</span></td>
+                <td>
+                  <button class="btn">Edit</button>
+                  <button class="btn cancel">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>
