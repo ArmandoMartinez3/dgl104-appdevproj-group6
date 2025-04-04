@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background: #dc3545; /* Red */
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-bottom: 3px solid #DAA520; /* Gold accent */
+}
+
+.header-content {
+    display: flex;
+    justify-content: flex-start; /* Align Sign Out to the left */
+    align-items: center;
+}
+
+.sign-out {
+    background: #cccacb; /* Gray for Sign Out button */
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sign-out:hover {
+    background: #DAA520; /* Gold on hover */
+    color: #333;
+}
+
+/* Routine Section Styles */
+.routine-section {
+    background: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-top: 4px solid #DAA520; /* Gold accent */
+}
+
+.routine-section h1 {
+    color: #dc3545; /* Red */
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Routine Creator Form */
+.routine-creator {
+    margin-top: 20px;
+}
+
+.routine-creator .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #333; /* Black border as in the image */
+    border-radius: 0; /* No border radius for a sharp look */
+    height: 40px; /* Taller input field as in the image */
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #DAA520; /* Gold on focus */
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    background: #dc3545; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #DAA520; /* Gold on hover */
+    color: #333;
+}
+
+.btn.cancel {
+    background: #dc3545; /* Gray for Cancel button */
+    margin-left: 10px;
+}
+
+.btn.cancel:hover {
+    background: #DAA520;
+    color: #333;
+}
+
+/* Button Group for Create Routine Form */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn.cancel {
+        margin-left: 0;
+    }
+}
