@@ -62,3 +62,54 @@ nav a:hover {
 main {
   margin-top: 30px;
 }
+
+/* Routine Section & table Styling */
+#routines-section {
+  display: block;
+}
+
+#routines-section h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.routine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.routine-table th,
+.routine-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.routine-table th {
+  background-color: #dc3545;
+  color: white;
+}
+
+.routine-table td {
+  background-color: #f8f9fa;
+}
+
+.routine-table tr:nth-child(even) td {
+  background-color: #f1f1f1;
+}
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.status.done {
+  background-color: #28a745;
+  color: white;
+}
