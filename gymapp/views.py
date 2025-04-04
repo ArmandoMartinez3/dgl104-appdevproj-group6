@@ -11,6 +11,9 @@ from django.utils import timezone
 def home(request):
     return render(request,"home.html")
 
+def about_us(request):
+    return render(request, 'aboutus.html')
+
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)

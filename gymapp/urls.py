@@ -9,6 +9,7 @@ urlpatterns = [
     path('signin/', CustomLoginView.as_view(template_name='signin.html'), name='signin'),
     path('signout/', auth_views.LogoutView.as_view(next_page='signin'), name='signout'),
     path('update-user-role/<int:user_id>/', views.update_user_role, name='update_user_role'),
+    path('about-us/', views.about_us, name='about_us'),
     path('client-home', views.client_home, name='client_home'),
     path('admin-home', views.admin_home, name='admin_home'),
     path('staff-home', views.staff_home, name='staff_home'),

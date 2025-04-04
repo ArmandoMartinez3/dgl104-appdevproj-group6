@@ -1,0 +1,122 @@
+/* Styles for signup page */
+body {
+    background: linear-gradient(45deg, #faf7f7, #1e1e1e);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.create-account-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #b22222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    width: 100%;
+    margin: auto;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Estilos para los párrafos generados por Django */
+form p {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Estilos para las etiquetas generadas por Django */
+form p label {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Estilos para los campos de entrada generados por Django */
+form p input,
+form p textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Estilos para los mensajes de ayuda de Django */
+form p .helptext {
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Estilos para los mensajes de error de Django */
+form p .errorlist {
+    color: #ff6b6b;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.button-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ffcc00;
+}
+
+.password-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.password-link a {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.password-link a:hover {
+    color: #ffcc00;
+} 

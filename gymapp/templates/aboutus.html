@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="about-section">
+        <h1>About GymSync</h1>
+        <p>Welcome to GymSync, where fitness meets technology! We're dedicated to helping you achieve your fitness goals through personalized training and cutting-edge tracking tools.</p>
+        
+        <h2>Our Mission</h2>
+        <p>To empower individuals to lead healthier lives through innovative fitness solutions and expert guidance.</p>
+
+        <h2>Meet Our Trainers</h2>
+        <div class="trainer-grid">
+            <div class="trainer-card">
+                <h3>Mike Johnson</h3>
+                <p class="title">Strength & Conditioning Coach</p>
+                <p>With over 10 years of experience, Mike specializes in powerlifting and athletic performance enhancement.</p>
+            </div>
+            <div class="trainer-card">
+                <h3>Sarah Williams</h3>
+                <p class="title">Yoga & Mobility Expert</p>
+                <p>Sarah brings 8 years of yoga expertise, helping clients improve flexibility and reduce stress.</p>
+            </div>
+            <div class="trainer-card">
+                <h3>Chris Rodriguez</h3>
+                <p class="title">Cardio & Endurance Specialist</p>
+                <p>Chris has trained marathon runners and triathletes for 12 years, focusing on stamina and endurance.</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
