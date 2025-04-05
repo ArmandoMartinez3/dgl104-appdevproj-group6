@@ -2,7 +2,9 @@ services:
   - type: web
     name: gym-project
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
     startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
