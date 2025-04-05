@@ -12,6 +12,9 @@ class CustomUser(AbstractUser):
     phone = models.CharField(max_length=15, blank=True)
     address = models.TextField(blank=True)
 
+    class Meta:
+        db_table = 'gymapp_customuser'
+
     def is_admin(self):
         return self.user_type == 'admin' or self.is_superuser
     
