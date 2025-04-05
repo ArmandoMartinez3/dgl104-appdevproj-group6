@@ -4,7 +4,12 @@ services:
     runtime: python
     buildCommand: |
       pip install -r requirements.txt
-      python manage.py makemigrations --noinput
+      python manage.py makemigrations gymapp --noinput
+      python manage.py migrate auth zero --noinput
+      python manage.py migrate contenttypes zero --noinput
+      python manage.py migrate sessions zero --noinput
+      python manage.py migrate admin zero --noinput
+      python manage.py migrate gymapp zero --noinput
       python manage.py migrate auth --noinput
       python manage.py migrate contenttypes --noinput
       python manage.py migrate sessions --noinput
