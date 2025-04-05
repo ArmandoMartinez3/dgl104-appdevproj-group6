@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff_home.css' %}">
+
+<div class="container">
+    <div class="main-content">
+        <section class="edit-session-section">
+            <h2>Edit Training Session</h2>
+            <div class="form-container">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="schedule-date">Date</label>
+                        <input type="date" id="schedule-date" name="date" value="{{ session.date|date:'Y-m-d' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-time">Time</label>
+                        <input type="time" id="schedule-time" name="time" value="{{ session.time|time:'H:i' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="schedule-client">Client</label>
+                        <select id="schedule-client" name="client" required>
+                            {% for client in clients %}
+                            <option value="{{ client.id }}" {% if client.id == session.client.id %}selected{% endif %}>
+                                {{ client.username }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="session-type">Session Type</label>
+                        <select id="session-type" name="session_type" required>
+                            <option value="personal" {% if session.session_type == 'personal' %}selected{% endif %}>Personal Training</option>
+                            <option value="group" {% if session.session_type == 'group' %}selected{% endif %}>Group Training</option>
+                            <option value="assessment" {% if session.session_type == 'assessment' %}selected{% endif %}>Assessment</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Save Changes</button>
+                        <a href="{% url 'staff_home' %}" class="btn cancel">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+.edit-session-section {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn.cancel {
+    background-color: #6c757d;
+}
+
+.btn.cancel:hover {
+    background-color: #5a6268;
+}
+</style>
+{% endblock %} 

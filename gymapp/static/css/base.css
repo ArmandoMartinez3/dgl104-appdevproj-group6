@@ -1,0 +1,100 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(45deg, #faf7f7, #1e1e1e);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* Navigation Bar Styles */
+nav {
+  background-color: #b22222;
+  padding: 10px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Navigation links styles */
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for links */
+nav a:hover {
+  background-color: #c0392b;
+}
+
+/* Button styles */
+nav button {
+  background-color: #ffd700;
+  color: #1e1e1e;
+  font-size: 18px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: #ffcc00;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+
+.nav-btn {
+    background: #e4b90b;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.nav-btn:hover {
+    background: #d0a601;
+    color: white;
+}
+
+/* Ajuste para el botón de Sign Out dentro del formulario */
+form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+} 
