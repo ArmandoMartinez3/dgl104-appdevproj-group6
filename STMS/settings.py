@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,11 +86,18 @@ WSGI_APPLICATION = 'STMS.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Si existe DATABASE_URL en el entorno, usa PostgreSQL
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
-}
 
 
 # Password validation
