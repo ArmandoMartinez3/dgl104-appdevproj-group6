@@ -87,8 +87,13 @@ WSGI_APPLICATION = 'STMS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gym_db',
+        'USER': 'gym_user',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'CONN_MAX_AGE': 600,  # Mantener conexiones abiertas por 10 minutos
     }
 }
 
@@ -132,9 +137,23 @@ STATICFILES_DIRS = [
     BASE_DIR / "gymapp/static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración de caché
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+# Configuración de sesión
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'

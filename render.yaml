@@ -5,7 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
-    startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT
+    startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT --workers 4 --threads 2 --timeout 120
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -17,6 +17,10 @@ services:
         value: "False"
       - key: ALLOWED_HOSTS
         value: .onrender.com
+      - key: DJANGO_SETTINGS_MODULE
+        value: STMS.settings
+      - key: PYTHONUNBUFFERED
+        value: "1"
 
 databases:
   - name: gym-db
