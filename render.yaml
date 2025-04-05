@@ -1,9 +1,9 @@
 services:
   - type: web
     name: gym-project
-    env: python
+    runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn Gym_Project.wsgi:application
+    startCommand: gunicorn STMS.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -12,7 +12,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
-        value: False
+        value: "False"
       - key: ALLOWED_HOSTS
         value: .onrender.com
 
