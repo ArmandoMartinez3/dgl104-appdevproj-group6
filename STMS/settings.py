@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'STMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gym_db',
-        'USER': 'gym_user',
-        'PASSWORD': 'mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg',  # Render.com proporcionará la contraseña
-        'HOST': 'postgresql://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com/gymapp_9owe',  # Tu External URL
+        'NAME': 'gymapp_9owe',
+        'USER': 'gymapp_9owe_user',
+        'PASSWORD': 'mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg',
+        'HOST': 'dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com',
         'PORT': '5432',
         'CONN_MAX_AGE': 600,
     }
