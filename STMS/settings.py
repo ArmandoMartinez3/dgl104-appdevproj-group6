@@ -85,15 +85,10 @@ WSGI_APPLICATION = 'STMS.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gymapp_9owe',
-        'USER': 'gymapp_9owe_user',
-        'PASSWORD': 'mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg',
-        'HOST': 'dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com',
-        'PORT': '5432',
-        'CONN_MAX_AGE': 600,
-    }
+    'default': dj_database_url.config(
+        default='postgres://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe',
+        conn_max_age=600
+    )
 }
 
 
