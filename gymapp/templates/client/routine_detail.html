@@ -70,7 +70,9 @@
 
         <div class="actions">
             {% if is_staff %}
-            <a href="{% url 'client_progress' routine.user.id %}" class="btn">Back to Client Progress</a>
+            <a href="{% url 'staff_home' %}" class="btn">Back to Staff Home</a>
+            {% else %}
+            <a href="{% url 'client_home' %}" class="btn">Back to Home</a>
             {% endif %}
         </div>
     </div>
