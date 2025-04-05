@@ -4,24 +4,62 @@
 <link rel="stylesheet" href="{% static 'css/client_home.css' %}" />
 <div class="container">
     <div class="main-content">
-        <h2>My Routines</h2>
+        <div class="header-actions">
+            <h2>My Routines</h2>
+            <div class="action-buttons">
+                <a href="{% url 'add_routine' %}" class="btn" id="add-routine-btn">Add New Routine</a>
+                <button class="btn delete-btn" id="delete-selected-btn" style="display: none;">Delete Selected</button>
+            </div>
+        </div>
 
-        <a href="{% url 'add_routine' %}" class="btn" id="add-routine-btn">Add New Routine</a>
-        <section id="routine-list">
-            {% for routine in routines %}
-            <article class="routine-card">
-                <h3>{{ routine.name }}</h3>
-                <p>Created on: <strong>{{ routine.date_created|date:"F d, Y" }}</strong></p>
-                <ul>
-                    <li></li>
-                    <li></li>
-                </ul>
-                <a href="{% url 'routine_detail' routine.id %}" class="view-routine">View Routine</a>
-            </article>
-            {% empty %}
-            <p class="text-center">No routines yet. Create your first routine!</p>
-            {% endfor %}
-        </section>
+        <form id="routine-form" method="post" action="{% url 'delete_routines' %}">
+            {% csrf_token %}
+            <section id="routine-list">
+                {% for routine in routines %}
+                <article class="routine-card">
+                    <div class="routine-header">
+                        <input type="checkbox" name="routine_ids" value="{{ routine.id }}" class="routine-checkbox">
+                        <h3>{{ routine.name }}</h3>
+                    </div>
+                    <p>Created on: <strong>{{ routine.date_created|date:"F d, Y" }}</strong></p>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <a href="{% url 'routine_detail' routine.id %}" class="view-routine">View Routine</a>
+                </article>
+                {% empty %}
+                <p class="text-center">No routines yet. Create your first routine!</p>
+                {% endfor %}
+            </section>
+        </form>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.routine-checkbox');
+    const deleteButton = document.getElementById('delete-selected-btn');
+    const routineForm = document.getElementById('routine-form');
+
+    // Mostrar/ocultar botón de eliminar según selección
+    function updateDeleteButton() {
+        const checkedBoxes = document.querySelectorAll('.routine-checkbox:checked');
+        deleteButton.style.display = checkedBoxes.length > 0 ? 'block' : 'none';
+    }
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateDeleteButton);
+    });
+
+    // Confirmar eliminación
+    deleteButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        const checkedBoxes = document.querySelectorAll('.routine-checkbox:checked');
+        if (confirm(`Are you sure you want to delete ${checkedBoxes.length} routine(s)?`)) {
+            routineForm.submit();
+        }
+    });
+});
+</script>
 {% endblock %}

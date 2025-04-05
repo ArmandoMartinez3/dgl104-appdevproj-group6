@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff_home.css' %}">
+
+<div class="container">
+    <div class="client-details">
+        <h1>{{ client.username }}'s Details</h1>
+        
+        <div class="client-info">
+            <h2>Personal Information</h2>
+            <p><strong>Email:</strong> {{ client.email }}</p>
+            <p><strong>Phone:</strong> {{ client.phone|default:"Not provided" }}</p>
+            <p><strong>Address:</strong> {{ client.address|default:"Not provided" }}</p>
+        </div>
+
+        <div class="sessions-section">
+            <h2>Training Sessions</h2>
+            {% if sessions %}
+                {% for session in sessions %}
+                <div class="session-card">
+                    <h3>{{ session.get_session_type_display }}</h3>
+                    <p>Date: {{ session.date|date:"F d, Y" }}</p>
+                    <p>Time: {{ session.time|time:"g:i A" }}</p>
+                    {% if session.notes %}
+                    <p>Notes: {{ session.notes }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No training sessions scheduled.</p>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'staff_home' %}" class="btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

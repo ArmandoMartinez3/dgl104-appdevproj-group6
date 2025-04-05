@@ -32,8 +32,16 @@ class Exercise(models.Model):
         return self.name
 
 class Routine(models.Model):
+    ROUTINE_TYPES = (
+        ('strength', 'Strength'),
+        ('cardio', 'Cardio'),
+        ('flexibility', 'Flexibility'),
+        ('hiit', 'HIIT')
+    )
+    
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    routine_type = models.CharField(max_length=20, choices=ROUTINE_TYPES, default='strength')
     date_created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -48,3 +56,25 @@ class RoutineExercise(models.Model):
     
     class Meta:
         ordering = ['id']
+
+class TrainingSession(models.Model):
+    SESSION_TYPES = (
+        ('personal', 'Personal Training'),
+        ('group', 'Group Training'),
+        ('assessment', 'Assessment')
+    )
+    
+    trainer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='training_sessions')
+    client = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='client_sessions')
+    date = models.DateField()
+    time = models.TimeField()
+    session_type = models.CharField(max_length=20, choices=SESSION_TYPES)
+    notes = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['date', 'time']
+    
+    def __str__(self):
+        return f"{self.client.username} - {self.date} {self.time}"

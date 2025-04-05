@@ -19,4 +19,12 @@ urlpatterns = [
     path('routine/<int:routine_id>/add-exercise/', views.add_exercise, name='add_exercise'),
     path('exercise/edit/<int:exercise_id>/', views.edit_exercise, name='edit_exercise'),
     path('exercise/delete/<int:exercise_id>/', views.delete_exercise, name='delete_exercise'),
+    path('staff/create-routine/', views.create_routine, name='create_routine'),
+    path('staff/create-session/', views.create_training_session, name='create_training_session'),
+    path('staff/session/<int:session_id>/edit/', views.edit_session, name='edit_session'),
+    path('staff/session/<int:session_id>/cancel/', views.cancel_training_session, name='cancel_training_session'),
+    path('staff/client/<int:client_id>/', views.client_details, name='client_details'),
+    path('staff/client/<int:client_id>/assign-routine/', views.assign_routine_to_client, name='assign_routine_to_client'),
+    path('staff/client/<int:client_id>/progress/', views.client_progress, name='client_progress'),
+    path('delete-routines/', views.delete_routines, name='delete_routines'),
 ]

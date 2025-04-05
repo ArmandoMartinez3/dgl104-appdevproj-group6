@@ -6,21 +6,23 @@
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/edit_exercise.css' %}">
+
 <div class="container">
     <section class="exercise-section">
         <h1>Add Exercise to {{ routine.name }}</h1>
         <div class="exercise-creator">
             <form method="post">
                 {% csrf_token %}
-                {% for field in form %}
                 <div class="form-group">
+                    {% for field in form %}
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                     {{ field }}
                     {% if field.errors %}
-                    <p class="text-red-500 text-sm mt-1">{{ field.errors.0 }}</p>
+                    <p class="error-message">{{ field.errors.0 }}</p>
                     {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
                 
                 <div class="button-group">
                     <button type="submit" class="btn">Add Exercise</button>

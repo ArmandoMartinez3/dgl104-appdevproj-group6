@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff_home.css' %}">
+
+<div class="container">
+    <div class="client-progress">
+        <h1>{{ client.username }}'s Progress</h1>
+        
+        <div class="current-routines">
+            <h2>Current Routines</h2>
+            <div class="routines-grid">
+                {% if routines %}
+                    {% for routine in routines %}
+                    <div class="routine-card">
+                        <h3>{{ routine.name }}</h3>
+                        <p><strong>Type:</strong> {{ routine.get_routine_type_display }}</p>
+                        <p><strong>Created:</strong> {{ routine.date_created|date:"F d, Y" }}</p>
+                        <div class="card-actions">
+                            <a href="{% url 'routine_detail' routine.id %}" class="btn">View Routine Details</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data">No active routines. Create a new routine to start tracking progress.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="training-history">
+            <h2>Training History</h2>
+            <div class="sessions-grid">
+                {% if sessions %}
+                    {% for session in sessions %}
+                    <div class="session-card">
+                        <h3>{{ session.get_session_type_display }}</h3>
+                        <div class="session-details">
+                            <p><strong>Date:</strong> {{ session.date|date:"F d, Y" }}</p>
+                            <p><strong>Time:</strong> {{ session.time|time:"g:i A" }}</p>
+                            {% if session.notes %}
+                            <div class="session-notes">
+                                <p><strong>Notes:</strong></p>
+                                <p>{{ session.notes }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data">No training sessions recorded yet. Schedule a session to start tracking.</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'staff_home' %}" class="btn">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 
