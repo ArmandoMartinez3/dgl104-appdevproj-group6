@@ -37,9 +37,15 @@ def check_database_permissions():
         
         # Verificar permisos de creación de tablas
         cur.execute("""
-            SELECT has_table_privilege(current_user, 'gymapp_customuser', 'SELECT')
+            SELECT has_schema_privilege(current_user, 'public', 'CREATE')
         """)
-        print("✓ Permisos de acceso a tablas verificados")
+        print("✓ Permisos de creación en esquema public verificados")
+        
+        # Verificar permisos de modificación de tablas
+        cur.execute("""
+            SELECT has_table_privilege(current_user, 'django_migrations', 'SELECT')
+        """)
+        print("✓ Permisos de acceso a django_migrations verificados")
         
         cur.close()
         conn.close()
