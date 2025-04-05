@@ -5,6 +5,11 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py makemigrations gymapp --noinput
+      python manage.py migrate auth zero --noinput
+      python manage.py migrate contenttypes zero --noinput
+      python manage.py migrate sessions zero --noinput
+      python manage.py migrate admin zero --noinput
+      python manage.py migrate gymapp zero --noinput
       python manage.py migrate auth --noinput
       python manage.py migrate contenttypes --noinput
       python manage.py migrate sessions --noinput
@@ -15,7 +20,7 @@ services:
     startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --keep-alive 5
     envVars:
       - key: DATABASE_URL
-        value: postgres://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe
+        value: postgresql://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG

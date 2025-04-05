@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'STMS.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe',
+        default='postgresql://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com:5432/gymapp_9owe',
         conn_max_age=600
     )
 }
