@@ -5,7 +5,8 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python check_db_permissions.py
-      python manage.py makemigrations --noinput
+      python manage.py makemigrations gymapp --noinput
+      python manage.py migrate gymapp --noinput
       python manage.py migrate auth --noinput
       python manage.py migrate contenttypes --noinput
       python manage.py migrate sessions --noinput
