@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,10 +89,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gym_db',
         'USER': 'gym_user',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'PASSWORD': 'mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg',  # Render.com proporcionará la contraseña
+        'HOST': 'postgresql://gymapp_9owe_user:mWjKuAPRdp0EMzAqeJjpgSIIHLW7ASWg@dpg-cvopa9p5pdvs73a34l10-a.oregon-postgres.render.com/gymapp_9owe',  # Tu External URL
         'PORT': '5432',
-        'CONN_MAX_AGE': 600,  # Mantener conexiones abiertas por 10 minutos
+        'CONN_MAX_AGE': 600,
     }
 }
 

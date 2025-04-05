@@ -11,6 +11,10 @@ services:
         fromDatabase:
           name: gym-db
           property: connectionString
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: gym-db
+          property: password
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
