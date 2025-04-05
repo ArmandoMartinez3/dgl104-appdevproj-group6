@@ -4,8 +4,10 @@ services:
     runtime: python
     buildCommand: |
       pip install -r requirements.txt
+      python manage.py makemigrations gymapp
+      python manage.py migrate gymapp --noinput
+      python manage.py migrate --noinput
       python manage.py collectstatic --noinput
-      python manage.py migrate
     startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --keep-alive 5
     envVars:
       - key: DATABASE_URL
@@ -19,7 +21,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
-        value: "False"
+        value: "True"
       - key: ALLOWED_HOSTS
         value: .onrender.com
       - key: DJANGO_SETTINGS_MODULE
@@ -33,4 +35,4 @@ databases:
   - name: gym-db
     databaseName: gymapp_9owe
     user: gymapp_9owe_user
-    plan: free 
+    plan: free
