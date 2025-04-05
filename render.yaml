@@ -5,7 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
-    startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT --workers 4 --threads 2 --timeout 120
+    startCommand: gunicorn --pythonpath . STMS.wsgi:application --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 300 --keep-alive 5
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -21,6 +21,8 @@ services:
         value: STMS.settings
       - key: PYTHONUNBUFFERED
         value: "1"
+      - key: GUNICORN_CMD_ARGS
+        value: "--log-level=warning"
 
 databases:
   - name: gym-db
