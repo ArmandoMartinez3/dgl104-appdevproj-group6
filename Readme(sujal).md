@@ -3,7 +3,7 @@
 ## Project Overview
 GymSync is a fitness-focused web application designed to attract gym enthusiasts ("gym freaks") by providing tools to create routines, add exercises, and stay updated with fitness news. The website features a consistent red (#dc3545) and gold (#DAA520) color scheme, with gray (#6c757d) for secondary elements, ensuring a professional and motivational aesthetic. The project includes multiple pages, each serving a specific purpose, with a static design (no JavaScript) to focus on layout and styling.
 
-The website was developed iteratively based on user requirements, starting with a trainer dashboard (`index.html`), followed by specialized pages for creating routines (`new-routine.html`), adding exercises (`add-exercise.html`), a news page (`news.html`), and a creative homepage (`home.html`). The design ensures consistency across pages while incorporating vector images and a footer for enhanced usability.
+The website was developed iteratively based on user requirements, starting with a trainer dashboard (`index.html`), followed by specialized pages for creating routines (`new-routine.html`), adding exercises (`add-exercise.html`), and a creative homepage (`home.html`). The design ensures consistency across pages while incorporating vector images and a footer for enhanced usability.
 
 ## File Structure
 The project consists of HTML and CSS files, organized as follows:
